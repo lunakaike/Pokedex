@@ -34,8 +34,8 @@ body{
 .id{
     position: absolute;
     transform: translate(-50%, -50%);
-    top: 58%;
-    left: 49%;
+    top: 22%;
+    left: 55%;
 }
 
 button,
@@ -90,4 +90,11 @@ button:focus{
     border-left: 4px solid #0000003d;
     border-bottom: 4px solid #0000003d;
     transition: .2s;
+}
+
+.type{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 57%;
+    left: 49%;
 }

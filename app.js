@@ -2,6 +2,7 @@ const next = document.querySelector(".next")
 const prev = document.querySelector(".prev")
 const barsearch = document.querySelector(".barsearch")
 const form = document.querySelector('.form');
+const type_text = document.querySelector('.type');
 
 const pokeimg = document.querySelector(".pokeimg")
 let name = document.querySelector(".name")
@@ -27,21 +28,29 @@ const loading_pokemon = async (pokemon) => {
         id.innerHTML = `#${data.id}`
         numberpokemon = data.id
 
+        type_text.innerHTML = "type: "
+        data.types.map(type => type_text.innerHTML +=`${type.type.name} `);
+
         pokeimg.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
         console.log(pokeimg.src)
         pokeimg.addEventListener("error", () => {
             pokeimg.src = data['sprites']['front_default']
         })
-        barsearch.value = ""
+
+        barsearch.value = '';
+
     }else{
+        barsearch.value = '';
         pokeimg.src = "img/pokemon ERROR.gif"
-        name.innerHTML = `ERRO`
-        id.innerHTML = `pokemon não encontrado`
+        name.innerHTML = `º§%"+(&`
+        id.innerHTML = `#¨%@(*)`
+        type_text.innerHTML = "type: $(`^~|?"
     }
 }
 
 form.addEventListener("submit", (eve) => {
     eve.preventDefault();
+    barsearch.innerHTML = ""
     loading_pokemon(barsearch.value.toLowerCase())
 })
 
